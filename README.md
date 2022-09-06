@@ -8,33 +8,28 @@ A starter project to learn React from the very basic to advance concepts
 
 ### Install development environment
 
-For Windows user
+For Windows user, open powershell and run these commands
 
 ```
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 irm get.scoop.sh | iex
 ```
 
-After that, scoop will be accessible via the powershell
+After that, `scoop` will be accessible via the powershell
 
 ```
-scoop bucket add main
 scoop bucket add extras
 
-scoop install nodejs-lts
-
-scoop install vscode
-
-scoop install git
+scoop install git nodejs-lts vscode
 ```
 
 ### Manually downloads
 
-If you don't like scoop, which you shouldn't IMO :) you can manually download and install these installer on your own
+If you don't like scoop, which you shouldn't IMO, or already have some of these dependencies installed, you can manually download and install them manually on your own
 
 - VSCode: https://code.visualstudio.com/
 - Git: https://git-scm.com/downloads
-- NodeJS: 16 LTS
+- NodeJS: https://nodejs.org
 
 ## Clone the repository
 
