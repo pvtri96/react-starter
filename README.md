@@ -46,6 +46,6 @@ The workshop takes advantages of what git has to offer, by using multiple branch
 
 These branches consist of:
 
-- `master`: where the foundation of the workshop are located. You should be able to find every single documentation related to the workshop here.
+- `main`: where the foundation of the workshop are located. You should be able to find every single documentation related to the workshop here.
 
 * `learn/{day_number}/{section}`: is the starting point of a specific section provided by the trainer.
