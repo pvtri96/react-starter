@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "formulahendry.code-runner",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "aaron-bond.better-comments"
+  ]
+}
