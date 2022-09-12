@@ -1,4 +1,5 @@
 {
   "code-runner.runInTerminal": true,
-  "jestrunner.jestCommand": "npm run test --"
+  "jestrunner.jestCommand": "npm run test --",
+  "editor.formatOnSave": true
 }
