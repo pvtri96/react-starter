@@ -1,47 +1,18 @@
 export let users = [];
-let id = 0;
 
-export function createUser(firstName, lastName, age, workAt) {
-  const user = {
-    id: id++,
-    firstName,
-    lastName,
-    age,
-    workAt,
-  };
+export function createUser(firstName, lastName, age, workAt) {}
 
-  users.push(user);
+export function findAllUsers() {}
+export function findUserById(id) {}
+export function findUsers(params) {}
 
-  return user;
-}
+export function updateUserById() {}
+export function updateUsers(searchParams, updatedUser) {}
 
-export function findAllUsers() {
-  return users;
-}
+export function deleteUserById(id) {}
+export function deleteUsers(searchParams, updatedUser) {}
 
-export function findUserById(id) {
-  return users.find((u) => u.id === id);
-}
-
-export function findUsers(params) {
-  const result = [];
-  for (const user of users) {
-    if (
-      user.firstName === params.firstName ||
-      user.lastName === params.lastName ||
-      user.age === params.age ||
-      user.workAt === params.workAt
-    ) {
-      result.push(user);
-    }
-  }
-  return result;
-}
-
-export function updateUser() {}
-
-export function deleteUser() {}
-
+// For unit tests only
 export function reset() {
   users = [];
 }

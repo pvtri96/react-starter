@@ -100,6 +100,92 @@ describe("users management module", () => {
       });
     });
 
+    it.skip("should thrown error if bad condition", () => {
+      expect(userManagementModule.findUsers("fpt")).toThrowError();
+    });
+
+    afterEach(userManagementModule.reset);
+  });
+
+  describe("update user", () => {
+    let user1, user2, user3;
+    beforeEach(() => {
+      user1 = userManagementModule.createUser("user1", "Peon", 16, "mgm");
+      user2 = userManagementModule.createUser("user2", "Peon", 23, "dtu");
+      user3 = userManagementModule.createUser("user3", "Peon", 23, "dtu");
+    });
+
+    it("should update a user by id", () => {
+      const updatedUsers = userManagementModule.updateUserById(user1.id, {
+        firstName: "Tri",
+      });
+
+      const [updatedUser] = updatedUsers;
+
+      expect(user1.id).toEqual(user1.id, updatedUser.id);
+      expect(updatedUser).toHaveProperty("firstName", "Tri");
+    });
+
+    it("should update multiple users", () => {
+      const updatedUsers = userManagementModule.updateUsers(
+        { workAt: "dtu" },
+        { firstName: "Tri" }
+      );
+
+      for (const updatedUser of updatedUsers) {
+        expect(updatedUser).toHaveProperty("workAt", "dtu");
+        expect(updatedUser).toHaveProperty("firstName", "Tri");
+      }
+    });
+    afterEach(userManagementModule.reset);
+  });
+
+  describe("delete user", () => {
+    let user1, user2, user3;
+    beforeEach(() => {
+      user1 = userManagementModule.createUser("user1", "Peon", 16, "mgm");
+      user2 = userManagementModule.createUser("user2", "Peon", 23, "dtu");
+      user3 = userManagementModule.createUser("user3", "Peon", 23, "dtu");
+    });
+    it("should delete a user by id", () => {
+      const foundUser = userManagementModule.findUserById(user1.id);
+      expect(foundUser).toBeDefined();
+      userManagementModule.deleteUserById(user1.id);
+      const deletedUser = userManagementModule.findUserById(user1.id);
+      expect(deletedUser).toBeUndefined();
+    });
+
+    it("should delete multiple users", () => {
+      const deletedUsers = userManagementModule.deleteUsers({ workAt: "dtu" });
+
+      for (const deletedUser of deletedUsers) {
+        expect(
+          userManagementModule.findUserById(deletedUser.id)
+        ).toBeUndefined();
+      }
+    });
+    afterEach(userManagementModule.reset);
+  });
+
+  describe("CRUD", () => {
+    it("should work correctly", () => {
+      const user = userManagementModule.createUser("Tri", "Pham", 18, "mgm");
+      expect(user).toHaveProperty("firstName", "Tri");
+      expect(user).toHaveProperty("lastName", "Pham");
+      expect(user).toHaveProperty("age", 18);
+
+      expect(userManagementModule.findUserById(user.id)).toBeDefined();
+
+      const updatedUser = userManagementModule.updateUserById(user.id, {
+        age: 26,
+      });
+      expect(updatedUser).toHaveProperty("firstName", "Tri");
+      expect(updatedUser).toHaveProperty("age", 26);
+
+      userManagementModule.deleteUserById(updatedUser.id);
+      expect(userManagementModule.findUserById(updatedUser.id)).toBeUndefined();
+    });
+
     afterEach(userManagementModule.reset);
   });
 });
