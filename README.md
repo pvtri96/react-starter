@@ -18,9 +18,9 @@ irm get.scoop.sh | iex
 After that, `scoop` will be accessible via the powershell
 
 ```
+scoop install git nodejs-lts
 scoop bucket add extras
-
-scoop install git nodejs-lts vscode
+scoop install vscode
 ```
 
 ### Manually downloads
@@ -39,6 +39,8 @@ git clone https://github.com/pvtri96/react-starter
 cd react-starter
 npm install
 ```
+
+**Note**: The link should be replaced with your forked repository in case you fork it.
 
 # Navigating with in the repository
 
