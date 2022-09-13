@@ -1,10 +1,10 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import { UsersList } from "./users";
+import { UserList } from "./user-list";
 
 describe("users component", () => {
   describe("Render a user", () => {
     it.skip("should render a list", () => {
-      render(<UsersList />);
+      render(<UserList />);
       const nameElement = screen.getByText(/Product list/i);
       expect(nameElement).toBeInTheDocument();
     });
@@ -13,13 +13,13 @@ describe("users component", () => {
   describe("props", () => {
     describe("should render a list with correct amount of elements", () => {
       it.skip("empty", () => {
-        render(<UsersList data={[]} />);
+        render(<UserList data={[]} />);
         const nameElement = screen.queryByText(/First Name:/i);
         expect(nameElement).toBeNull();
       });
 
       it.skip("one", () => {
-        render(<UsersList data={[{ firstName: "John", lastName: "Doe" }]} />);
+        render(<UserList data={[{ firstName: "John", lastName: "Doe" }]} />);
         expect(screen.getAllByText(/First Name: John/i)).toHaveLength(1);
         expect(screen.getAllByText(/Last Name: Doe/i)).toHaveLength(1);
       });
@@ -29,7 +29,7 @@ describe("users component", () => {
           firstName: `First Name ${index}`,
           lastName: `First Name ${index}`,
         }));
-        render(<UsersList data={users} />);
+        render(<UserList data={users} />);
         const nameElement = screen.getAllByText(/First Name:/i);
         expect(nameElement).toHaveLength(20);
       });
@@ -40,7 +40,7 @@ describe("users component", () => {
     it.skip("update", () => {
       const onUpdate = jest.fn();
       render(
-        <UsersList
+        <UserList
           data={[{ firstName: "John" }, { firstName: "Martin" }]}
           onUpdate={onUpdate}
         />
@@ -54,7 +54,7 @@ describe("users component", () => {
     it.skip("delete", () => {
       const onDelete = jest.fn();
       render(
-        <UsersList
+        <UserList
           data={[{ firstName: "John" }, { firstName: "Martin" }]}
           onDelete={onDelete}
         />
@@ -69,7 +69,7 @@ describe("users component", () => {
     it.skip("add to cart", () => {
       const onAddToCart = jest.fn();
       render(
-        <UsersList
+        <UserList
           data={[{ firstName: "John" }, { firstName: "Martin" }]}
           onAddToCart={onAddToCart}
         />
