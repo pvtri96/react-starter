@@ -23,14 +23,19 @@ describe("product component", () => {
   describe("props", () => {
     it.skip("should render a product with custom props", () => {
       render(
-        <Product name="Product b" price={238} seller="Tri" location="Da Nang" />
+        <Product
+          name="Product b"
+          price={238}
+          seller="Dung"
+          location="Da Nang"
+        />
       );
 
       const productNameElement = screen.getByText(/Product b/i);
       expect(productNameElement).toBeInTheDocument();
       const priceElement = screen.getByText(/238/i);
       expect(priceElement).toBeInTheDocument();
-      const sellerElement = screen.getByText(/Tri/i);
+      const sellerElement = screen.getByText(/Dung/i);
       expect(sellerElement).toBeInTheDocument();
       const locationElement = screen.getByText(/Da Nang/i);
       expect(locationElement).toBeInTheDocument();
@@ -71,7 +76,7 @@ describe("product component", () => {
         />
       );
 
-      const deleteButton = screen.getByText("Update");
+      const deleteButton = screen.getByText("Delete");
       expect(deleteButton).toBeInTheDocument();
       fireEvent.click(deleteButton);
       expect(onDelete.mock.calls).toHaveLength(1);
@@ -113,7 +118,7 @@ describe("product component", () => {
         />
       );
 
-      const addToCartButton = screen.getByText("Add to cart");
+      const addToCartButton = screen.getByText("Remove from cart");
       expect(addToCartButton).toBeInTheDocument();
       fireEvent.click(addToCartButton);
       expect(onRemoveFromCart.mock.calls).toHaveLength(1);
