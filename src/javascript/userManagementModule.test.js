@@ -47,6 +47,7 @@ describe("users management module", () => {
           expect(users).toHaveLength(1);
           expect(users[0]).toHaveProperty("firstName", user1.firstName);
         });
+
         it.skip("lastName", () => {
           const users = userManagementModule.findUsers({ lastName: "Peon" });
           expect(users).toHaveLength(6);
@@ -80,7 +81,7 @@ describe("users management module", () => {
         it.skip("Age 23 at dtu", () => {
           const users = userManagementModule.findUsers({
             age: 23,
-            workAt: "fpt",
+            workAt: "dtu",
           });
           expect(users).toHaveLength(3);
           for (const user of users) {
@@ -89,19 +90,11 @@ describe("users management module", () => {
           }
         });
       });
-
-      it.skip("no result", () => {
-        const users = userManagementModule.findUsers({ firstName: "user10" });
-        expect(users).toHaveLength(0);
-      });
-
-      it.skip("should thrown error if bad condition", () => {
-        expect(userManagementModule.findUsers("fpt")).toThrowError();
-      });
     });
 
-    it.skip("should thrown error if bad condition", () => {
-      expect(userManagementModule.findUsers("fpt")).toThrowError();
+    it.skip("no result", () => {
+      const users = userManagementModule.findUsers({ firstName: "user10" });
+      expect(users).toHaveLength(0);
     });
 
     afterEach(userManagementModule.reset);
