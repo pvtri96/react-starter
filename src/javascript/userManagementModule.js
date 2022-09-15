@@ -7,10 +7,10 @@ export function findUserById(id) {}
 export function findUsers(params) {}
 
 export function updateUserById() {}
-export function updateUsers(searchParams, updatedUser) {}
+export function updateUsers(searchParams, payload) {}
 
 export function deleteUserById(id) {}
-export function deleteUsers(searchParams, updatedUser) {}
+export function deleteUsers(searchParams) {}
 
 // For unit tests only
 export function reset() {
