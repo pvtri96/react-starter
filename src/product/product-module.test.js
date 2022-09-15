@@ -25,12 +25,15 @@ describe("product module", () => {
 
       fireEvent.click(screen.getByText("Submit"));
 
+      // regex
       expect(screen.getByText(sample1.name)).toBeInTheDocument();
 
       fillInput("Name", sample2.name);
       fillInput("Price", sample2.price);
       fillInput("Seller", sample2.seller);
       fillInput("Location", sample2.location);
+
+      fireEvent.click(screen.getByText("Submit"));
 
       expect(screen.getByText(sample2.name)).toBeInTheDocument();
     });
@@ -40,7 +43,7 @@ describe("product module", () => {
     it.skip("should update a product's price", () => {
       render(<ProductModule initialProducts={[sample1]}></ProductModule>);
 
-      fireEvent.click(screen.queryAllByText("Update")[0]);
+      fireEvent.click(screen.queryAllByText("Update").at(0));
 
       expect(screen.getByLabelText("Price")).toHaveProperty("value", "399");
 

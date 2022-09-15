@@ -44,7 +44,8 @@ describe("products component", () => {
           onUpdate={onUpdate}
         />
       );
-      fireEvent(screen.queryByText("Update"[1]));
+
+      fireEvent.click(screen.queryAllByText("Update").at(1));
       expect(onUpdate.mock.calls).toHaveLength(1);
       const [firstCall] = onUpdate.mock.calls;
       const [param] = firstCall;
@@ -58,8 +59,8 @@ describe("products component", () => {
           onDelete={onDelete}
         />
       );
-      fireEvent(screen.queryByText("Update"[0]));
-      expect(onDelete.mock.calls).toHaveLength(0);
+      fireEvent.click(screen.queryAllByText("Delete").at(0));
+      expect(onDelete.mock.calls).toHaveLength(1);
       const [firstCall] = onDelete.mock.calls;
       const [param] = firstCall;
       expect(param).toHaveProperty("name", "Product a");
@@ -73,7 +74,7 @@ describe("products component", () => {
           onAddToCart={onAddToCart}
         />
       );
-      fireEvent(screen.queryByText("Add to cart"[1]));
+      fireEvent.click(screen.queryAllByText("Add to cart").at(1));
       expect(onAddToCart.mock.calls).toHaveLength(1);
       const [firstCall] = onAddToCart.mock.calls;
       const [param] = firstCall;
