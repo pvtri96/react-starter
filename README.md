@@ -1,6 +1,8 @@
 # React starter workshop
 
-A starter project to learn React from the very basic to advance concepts
+A starter project to learn React from the very basic to advance concepts.
+
+Discord server: https://discord.gg/ssCPXtqfUw
 
 # How to start
 
