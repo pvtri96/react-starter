@@ -1,5 +1,6 @@
 export const products = [
   {
+    id: Math.random(),
     name: "Product a",
     price: 4857,
     seller: "Tri",
@@ -7,6 +8,7 @@ export const products = [
     img: "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
+    id: Math.random(),
     name: "Product b",
     price: 4354,
     seller: "Tri",
@@ -14,6 +16,7 @@ export const products = [
     img: "https://images.pexels.com/photos/335257/pexels-photo-335257.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
+    id: Math.random(),
     name: "Product c",
     price: 2233,
     seller: "Tri",
@@ -21,6 +24,7 @@ export const products = [
     img: "https://images.pexels.com/photos/279906/pexels-photo-279906.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
+    id: Math.random(),
     name: "Product d",
     price: 5464,
     seller: "Tri",
@@ -28,6 +32,7 @@ export const products = [
     img: "https://images.pexels.com/photos/1047168/pexels-photo-1047168.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
+    id: Math.random(),
     name: "Product e",
     price: 38473,
     seller: "Tri",
