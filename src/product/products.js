@@ -10,6 +10,8 @@ export const Products = (props) => {
           key={product.id}
           {...product}
           onUpdate={props.onUpdate}
+          onDelete={props.onDelete}
+          onAddToCart={props.onAddToCart}
         ></Product>
       ))}
     </div>

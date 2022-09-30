@@ -17,7 +17,14 @@ export const ProductForm = (props) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+
+    let id = Math.random();
+    if (props.updatingProduct) {
+      id = props.updatingProduct.id;
+    }
+
     props.onSubmit({
+      id,
       name,
       price,
       location: location || undefined,
@@ -30,17 +37,29 @@ export const ProductForm = (props) => {
     setSeller("");
   };
 
+  const onCancel = (event) => {
+    event.preventDefault();
+    setName("");
+    setPrice("");
+    setLocation("");
+    setSeller("");
+
+    props.onCancel();
+  };
+
+  console.log(props.updatingProduct);
+
   useEffect(() => {
     if (props.updatingProduct) {
-      setName(props.updatingProduct.name);
-      setPrice(props.updatingProduct.price);
-      setLocation(props.updatingProduct.location);
-      setSeller(props.updatingProduct.seller);
+      setName(props.updatingProduct.name ?? "");
+      setPrice(props.updatingProduct.price ?? "");
+      setLocation(props.updatingProduct.location ?? "");
+      setSeller(props.updatingProduct.seller ?? "");
     }
   }, [props.updatingProduct]);
 
   return (
-    <form className="product-form" onSubmit={onSubmit}>
+    <form className="product-form">
       <h1>Product form</h1>
       <label htmlFor="name">Name</label>
       <input
@@ -74,7 +93,8 @@ export const ProductForm = (props) => {
         value={seller}
         onChange={onSellerChange}
       />
-      <button type="submit">Submit</button>
+      <button onClick={onSubmit}>Submit</button>
+      <button onClick={onCancel}>Cancel</button>
     </form>
   );
 };
