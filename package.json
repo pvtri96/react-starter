@@ -18,7 +18,7 @@
   "scripts": {
     "postinstall": "cd server && npm install",
     "start": "run-p start:*",
-    "start:server": "npm start --prefix server",
+    "start:server": "npm run dev --prefix server",
     "start:client": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",

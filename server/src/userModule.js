@@ -1,3 +1,4 @@
+const { getRandomId } = require("./shared");
 const { readUsersData, writeUsersData } = require("./userStorage");
 
 function getAllUsers() {
@@ -70,10 +71,6 @@ function deleteUserById(id) {
   });
   writeUsersData(newUsers);
   return deletedUser;
-}
-
-function getRandomId() {
-  return Math.round(Math.random() * 10000);
 }
 
 module.exports = {

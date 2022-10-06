@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 const { getDelay } = require("./config");
 const {
@@ -6,10 +7,13 @@ const {
   getUserById,
   createUser,
   updateUserById,
+  deleteUserById,
 } = require("./userModule");
+
 const app = express();
 const port = 2996;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
@@ -24,7 +28,7 @@ app.get("/api/users", async (req, res) => {
 
 app.get("/api/user/:id", async (req, res) => {
   await wait();
-  res.json(getUserById(req.params.id));
+  res.json(getUserById(Number(req.params.id)));
 });
 
 app.post("/api/user", async (req, res) => {
@@ -36,12 +40,12 @@ app.post("/api/user", async (req, res) => {
 app.put("/api/user/:id", async (req, res) => {
   await wait();
   const user = req.body;
-  res.json(updateUserById(req.params.id, user));
+  res.json(updateUserById(Number(req.params.id), user));
 });
 
 app.delete("/api/user/:id", async (req, res) => {
   await wait();
-  res.json(getAllUsers(req.params.id));
+  res.json(deleteUserById(Number(req.params.id)));
 });
 
 function wait() {

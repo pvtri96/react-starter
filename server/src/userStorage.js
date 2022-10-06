@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const { getRandomId } = require("./shared");
 
 const storagePath = path.join(process.cwd(), "storage");
 if (!fs.existsSync(storagePath)) {
@@ -27,6 +28,7 @@ function readUsersData() {
 function getInitialUsers() {
   return [
     {
+      id: getRandomId(),
       firstName: "John",
       lastName: "Doe",
       workAt: "gov",
@@ -36,12 +38,23 @@ function getInitialUsers() {
       address: null,
     },
     {
+      id: getRandomId(),
       firstName: "Lorem",
       lastName: "Ipsum",
       workAt: "gov",
       school: "Rado",
       city: "Bangkok",
       country: "Thai",
+      address: null,
+    },
+    {
+      id: getRandomId(),
+      firstName: "Tri",
+      lastName: "Pham",
+      workAt: "mgm",
+      school: "DTU",
+      city: "Da Nang",
+      country: "Viet Nam",
       address: null,
     },
   ];

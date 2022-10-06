@@ -1,4 +1,4 @@
-import { Button, Form, Input, Typography, FormInstance } from "antd";
+import { Button, Form, Input, Typography } from "antd";
 import React, { useEffect, useRef } from "react";
 
 export const UserForm = (props) => {
@@ -80,7 +80,6 @@ export const UserForm = (props) => {
       <Form.Item label="Work at" name="workAt" rules={[]}>
         <Input />
       </Form.Item>
-
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button type="primary" htmlType="submit">
           Submit
