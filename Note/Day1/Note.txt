@@ -1,0 +1,3 @@
+primitive type: string, number, boolean, undefined, bigint, symbol
+
+variables: use let and const    
