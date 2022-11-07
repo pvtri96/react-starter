@@ -34,4 +34,11 @@ export const products = [
     location: "Da Nang",
     img: "https://images.pexels.com/photos/4033324/pexels-photo-4033324.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
+
+  {
+    name: "Product f",
+    price: 4857,
+    seller: "Tri",
+    location: "Da Nang",
+  },
 ];
