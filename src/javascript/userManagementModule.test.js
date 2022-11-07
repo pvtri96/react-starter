@@ -2,7 +2,7 @@ import * as userManagementModule from "./userManagementModule";
 
 describe("users management module", () => {
   describe("create a user", () => {
-    it.skip("should create a basic user", () => {
+    it("should create a basic user", () => {
       const user = userManagementModule.createUser("Tri", "Pham", 18, "mgm");
       expect(user).toHaveProperty("firstName", "Tri");
       expect(user).toHaveProperty("lastName", "Pham");
@@ -25,14 +25,14 @@ describe("users management module", () => {
       user8 = userManagementModule.createUser("user8", "Peon", 23, "dtu");
     });
 
-    it.skip("should find all users", () => {
+    it("should find all users", () => {
       const users = userManagementModule.findAllUsers();
       expect(users).toHaveLength(8);
       expect(users[0]).toHaveProperty("firstName", "user1");
       expect(users[2]).toHaveProperty("firstName", "user3");
     });
 
-    it.skip("should find user by Id", () => {
+    it("should find user by Id", () => {
       const user = userManagementModule.findUserById(user1.id);
       expect(user).toBeDefined();
       expect(user).toHaveProperty("firstName", user1.firstName);
@@ -108,7 +108,7 @@ describe("users management module", () => {
       user3 = userManagementModule.createUser("user3", "Peon", 23, "dtu");
     });
 
-    it.skip("should update a user by id", () => {
+    it("should update a user by id", () => {
       const updatedUsers = userManagementModule.updateUserById(user1.id, {
         firstName: "Tri",
       });
@@ -140,7 +140,7 @@ describe("users management module", () => {
       user2 = userManagementModule.createUser("user2", "Peon", 23, "dtu");
       user3 = userManagementModule.createUser("user3", "Peon", 23, "dtu");
     });
-    it.skip("should delete a user by id", () => {
+    it("should delete a user by id", () => {
       const foundUser = userManagementModule.findUserById(user1.id);
       expect(foundUser).toBeDefined();
       userManagementModule.deleteUserById(user1.id);
