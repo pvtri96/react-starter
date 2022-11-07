@@ -140,7 +140,7 @@ describe("users management module", () => {
       user2 = userManagementModule.createUser("user2", "Peon", 23, "dtu");
       user3 = userManagementModule.createUser("user3", "Peon", 23, "dtu");
     });
-    it.skip("should delete a user by id", () => {
+    it("should delete a user by id", () => {
       const foundUser = userManagementModule.findUserById(user1.id);
       expect(foundUser).toBeDefined();
       userManagementModule.deleteUserById(user1.id);
