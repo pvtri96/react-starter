@@ -9,5 +9,6 @@
     "learn/day-2/react",
     "learn/day-4/user-module",
     "learn/day-5/redux"
-  ]
+  ],
+  "automerge": true
 }
