@@ -48,6 +48,6 @@
     ]
   },
   "devDependencies": {
-    "npm-run-all2": "^8.0.0"
+    "npm-run-all2": "^9.0.0"
   }
 }
